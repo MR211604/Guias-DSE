@@ -9,9 +9,9 @@ namespace MVCPeliculas.Controllers
         {
             return "Esta es mi acción <b> predeterminada </b>";
         }
-        public ActionResult Welcome(string nombre, int numVeces = 1)
+        public ActionResult Welcome(string nombre, string apellido, int numVeces = 1)
         {
-            ViewData["nombre"] = "Hola " + nombre;
+            ViewData["nombre"] = "Hola " + nombre + " " + apellido;
             ViewData["numVeces"] = numVeces;
             return View();
         }

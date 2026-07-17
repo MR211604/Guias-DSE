@@ -1,3 +1,4 @@
 <Solution>
-  <Project Path="MVCPeliculas/MVCPeliculas.csproj"/>
+  <Project Path="Desafio02-Ejercicio2/Desafio02-Ejercicio2.csproj" Id="47e995aa-9e0d-43f7-b7f7-0bf6e1eff698" />
+  <Project Path="MVCPeliculas/MVCPeliculas.csproj" />
 </Solution>

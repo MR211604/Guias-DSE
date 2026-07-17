@@ -9,14 +9,18 @@ public class Pelicula
     [StringLength(250)]
     [Required]
     public string Titulo { get; set; }
+    
     public DateTime FechaLanzamiento { get; set; }
-    [Column(TypeName = "money")]
+  
+    [Column(TypeName ="money")]
     [Required]
     public decimal Precio { get; set; }
+
     [StringLength(15)]
     [Required]
     public string Director { get; set; }
     [Required]
-    public int GeneroId { get; set; } // <- Llave foranea
-    public Genero Genero { get; set; } // <- Propiedad de navegacion
+    [ForeignKey("GeneroPelicula")]
+    public int GeneroId { get; set; }
+    public Genero? GeneroPelicula { get; set; }
 }

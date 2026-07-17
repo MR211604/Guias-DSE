@@ -1,27 +1,25 @@
 
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVCPeliculas.Models;
 using MVCPeliculas.Data;
 
-public class PeliculaController : Controller
+public class GeneroController : Controller
 {
     private readonly PeliculasDbContext _context;
 
-    public PeliculaController(PeliculasDbContext context)
+    public GeneroController(PeliculasDbContext context)
     {
         _context = context;
     }
 
-    // GET: PELICULAS
+    // GET: GENEROS
     public async Task<IActionResult> Index()    
     {
-        var peliculas = _context.Peliculas.Include(p => p.GeneroPelicula);
-        return View(await peliculas.ToListAsync());
+        return View(await _context.Generos.ToListAsync());
     }
 
-    // GET: PELICULAS/Details/5
+    // GET: GENEROS/Details/5
     public async Task<IActionResult> Details(int? id)
     {
         if (id == null)
@@ -29,42 +27,39 @@ public class PeliculaController : Controller
             return NotFound();
         }
 
-        var pelicula = await _context.Peliculas
-            .Include(p => p.GeneroPelicula)
+        var genero = await _context.Generos
             .FirstOrDefaultAsync(m => m.Id == id);
-        if (pelicula == null)
+        if (genero == null)
         {
             return NotFound();
         }
 
-        return View(pelicula);
+        return View(genero);
     }
 
-    // GET: PELICULAS/Create
+    // GET: GENEROS/Create
     public IActionResult Create()
     {
-        ViewData["GeneroId"] = new SelectList(_context.Generos, "Id", "Nombre");
         return View();
     }
 
-    // POST: PELICULAS/Create
+    // POST: GENEROS/Create
     // To protect from overposting attacks, enable the specific properties you want to bind to.
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Id,Titulo,FechaLanzamiento,Precio,Director,GeneroId")] Pelicula pelicula)
+    public async Task<IActionResult> Create([Bind("Id,Nombre")] Genero genero)
     {
         if (ModelState.IsValid)
         {
-            _context.Add(pelicula);
+            _context.Add(genero);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        ViewData["GeneroId"] = new SelectList(_context.Generos, "Id", "Nombre", pelicula.GeneroId);
-        return View(pelicula);
+        return View(genero);
     }
 
-    // GET: PELICULAS/Edit/5
+    // GET: GENEROS/Edit/5
     public async Task<IActionResult> Edit(int? id)
     {
         if (id == null)
@@ -72,23 +67,22 @@ public class PeliculaController : Controller
             return NotFound();
         }
 
-        var pelicula = await _context.Peliculas.FindAsync(id);
-        if (pelicula == null)
+        var genero = await _context.Generos.FindAsync(id);
+        if (genero == null)
         {
             return NotFound();
         }
-        ViewData["GeneroId"] = new SelectList(_context.Generos, "Id", "Nombre", pelicula.GeneroId);
-        return View(pelicula);
+        return View(genero);
     }
 
-    // POST: PELICULAS/Edit/5
+    // POST: GENEROS/Edit/5
     // To protect from overposting attacks, enable the specific properties you want to bind to.
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int? id, [Bind("Id,Titulo,FechaLanzamiento,Precio,Director,GeneroId")] Pelicula pelicula)
+    public async Task<IActionResult> Edit(int? id, [Bind("Id,Nombre")] Genero genero)
     {
-        if (id != pelicula.Id)
+        if (id != genero.Id)
         {
             return NotFound();
         }
@@ -97,12 +91,12 @@ public class PeliculaController : Controller
         {
             try
             {
-                _context.Update(pelicula);
+                _context.Update(genero);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PeliculaExists(pelicula.Id))
+                if (!GeneroExists(genero.Id))
                 {
                     return NotFound();
                 }
@@ -113,11 +107,10 @@ public class PeliculaController : Controller
             }
             return RedirectToAction(nameof(Index));
         }
-        ViewData["GeneroId"] = new SelectList(_context.Generos, "Id", "Nombre", pelicula.GeneroId);
-        return View(pelicula);
+        return View(genero);
     }
 
-    // GET: PELICULAS/Delete/5
+    // GET: GENEROS/Delete/5
     public async Task<IActionResult> Delete(int? id)
     {
         if (id == null)
@@ -125,34 +118,33 @@ public class PeliculaController : Controller
             return NotFound();
         }
 
-        var pelicula = await _context.Peliculas
-            .Include(p => p.GeneroPelicula)
+        var genero = await _context.Generos
             .FirstOrDefaultAsync(m => m.Id == id);
-        if (pelicula == null)
+        if (genero == null)
         {
             return NotFound();
         }
 
-        return View(pelicula);
+        return View(genero);
     }
 
-    // POST: PELICULAS/Delete/5
+    // POST: GENEROS/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var pelicula = await _context.Peliculas.FindAsync(id);
-        if (pelicula != null)
+        var genero = await _context.Generos.FindAsync(id);
+        if (genero != null)
         {
-            _context.Peliculas.Remove(pelicula);
+            _context.Generos.Remove(genero);
         }
 
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
-    private bool PeliculaExists(int? id)
+    private bool GeneroExists(int? id)
     {
-        return _context.Peliculas.Any(e => e.Id == id);
+        return _context.Generos.Any(e => e.Id == id);
     }
 }

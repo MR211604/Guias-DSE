@@ -17,29 +17,37 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Titulo)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.FechaLanzamiento)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.FechaLanzamiento)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Precio)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Precio)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Director)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Director)
         </dd>
+    </dl>
+    <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Genero)
+            @Html.DisplayNameFor(model => model.GeneroPelicula)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Genero.Nombre)
+            @Html.DisplayFor(model => model.GeneroPelicula.Nombre)
         </dd>
     </dl>
     <form asp-action="Delete">

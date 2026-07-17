@@ -4,6 +4,7 @@ using MVCPeliculas.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVCPeliculas.Migrations
 {
     [DbContext(typeof(PeliculasDbContext))]
-    partial class PeliculasDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260711033113_Migracion_director")]
+    partial class Migracion_director
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,23 +24,6 @@ namespace MVCPeliculas.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("MVCPeliculas.Models.Genero", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Generos");
-                });
 
             modelBuilder.Entity("MVCPeliculas.Models.Pelicula", b =>
                 {
@@ -55,8 +41,10 @@ namespace MVCPeliculas.Migrations
                     b.Property<DateTime>("FechaLanzamiento")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("GeneroId")
-                        .HasColumnType("int");
+                    b.Property<string>("Genero")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.Property<decimal>("Precio")
                         .HasColumnType("money");
@@ -68,20 +56,7 @@ namespace MVCPeliculas.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GeneroId");
-
                     b.ToTable("Peliculas");
-                });
-
-            modelBuilder.Entity("MVCPeliculas.Models.Pelicula", b =>
-                {
-                    b.HasOne("MVCPeliculas.Models.Genero", "GeneroPelicula")
-                        .WithMany()
-                        .HasForeignKey("GeneroId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("GeneroPelicula");
                 });
 #pragma warning restore 612, 618
         }

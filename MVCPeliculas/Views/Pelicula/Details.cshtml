@@ -10,35 +10,37 @@
     <h4>Pelicula</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Titulo)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Titulo)
         </dd>
-        <dt class="col-sm-2">
+    </dl>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.FechaLanzamiento)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.FechaLanzamiento)
         </dd>
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Precio)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Precio)
         </dd>
-        <dt class="col-sm-2">
+    </dl>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Director)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Director)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Genero)
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GeneroPelicula)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Genero.Nombre)
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GeneroPelicula.Nombre)
         </dd>
     </dl>
 </div>

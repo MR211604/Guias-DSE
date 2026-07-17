@@ -4,6 +4,7 @@ using MVCPeliculas.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVCPeliculas.Migrations
 {
     [DbContext(typeof(PeliculasDbContext))]
-    partial class PeliculasDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260711033419_Migracion_relacion_genero")]
+    partial class Migracion_relacion_genero
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,6 +57,11 @@ namespace MVCPeliculas.Migrations
 
                     b.Property<DateTime>("FechaLanzamiento")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Genero")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.Property<int>("GeneroId")
                         .HasColumnType("int");

@@ -18,6 +18,6 @@ namespace Desafio02_Ejercicio2.Models
         [Display(Name = "Fecha de Inicio")]
         public DateTime FechaInicio { get; set; }
 
-        public ICollection<Asignacion> Asignaciones { get; set; }
+        public ICollection<Asignacion>? Asignaciones { get; set; }
     }
 }

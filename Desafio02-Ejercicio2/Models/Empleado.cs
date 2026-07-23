@@ -23,6 +23,6 @@ namespace Desafio02_Ejercicio2.Models
         [StringLength(50)]
         public string Puesto { get; set; }
 
-        public ICollection<Asignacion> Asignaciones { get; set; }
+        public ICollection<Asignacion>? Asignaciones { get; set; }
     }
 }

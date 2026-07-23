@@ -8,10 +8,10 @@ namespace Desafio02_Ejercicio2.Models
         public int AsignacionId { get; set; }
 
         public int EmpleadoId { get; set; }
-        public Empleado Empleado { get; set; }
+        public Empleado? Empleado { get; set; }
 
         public int ProyectoId { get; set; }
-        public Proyecto Proyecto { get; set; }
+        public Proyecto? Proyecto { get; set; }
 
         [DataType(DataType.Date)]
         [Display(Name = "Fecha de Asignación")]

@@ -15,10 +15,13 @@ public class PeliculaController : Controller
     }
 
     // GET: PELICULAS
-    public async Task<IActionResult> Index()    
+    public async Task<IActionResult> Index(string? searchString)    
     {
-        var peliculas = _context.Peliculas.Include(p => p.GeneroPelicula);
-        return View(await peliculas.ToListAsync());
+        var peliculas = await _context.Peliculas
+            .Include(p => p.GeneroPelicula)
+            .Where(p => string.IsNullOrEmpty(searchString) || p.Titulo.Contains(searchString))
+            .ToListAsync();
+        return View(peliculas);
     }
 
     // GET: PELICULAS/Details/5
@@ -43,7 +46,8 @@ public class PeliculaController : Controller
     // GET: PELICULAS/Create
     public IActionResult Create()
     {
-        ViewData["GeneroId"] = new SelectList(_context.Generos, "Id", "Nombre");
+        var generos = _context.Generos.ToList();
+        ViewBag.GeneroId = new SelectList(generos, "Id", "Nombre");
         return View();
     }
 
@@ -52,7 +56,7 @@ public class PeliculaController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Id,Titulo,FechaLanzamiento,Precio,Director,GeneroId")] Pelicula pelicula)
+    public async Task<IActionResult> Create(Pelicula pelicula)
     {
         if (ModelState.IsValid)
         {
@@ -60,7 +64,8 @@ public class PeliculaController : Controller
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        ViewData["GeneroId"] = new SelectList(_context.Generos, "Id", "Nombre", pelicula.GeneroId);
+        var generos = await _context.Generos.ToListAsync();
+        ViewBag.GeneroId = new SelectList(generos, "Id", "Nombre", pelicula.GeneroId);
         return View(pelicula);
     }
 

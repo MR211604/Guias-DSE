@@ -1,4 +1,9 @@
 <Solution>
+  <Project Path="Biblioteca.API/Biblioteca.API.csproj" Id="34eb69f8-e722-43d7-811e-c3dd11803a51" />
+  <Project Path="Biblioteca.BL/Biblioteca.BL.csproj" Id="619da6a8-1240-41ee-b965-8f5293c8d943" />
+  <Project Path="Biblioteca.Common/Biblioteca.Common.csproj" Id="0f2269b5-b4bc-43fc-add3-8869e4df1385" />
+  <Project Path="Biblioteca.DAL/Biblioteca.DAL.csproj" Id="1b5aee24-62cf-40b8-8c10-2242ee7f3de6" />
+  <Project Path="Biblioteca.Entities/Biblioteca.Entities.csproj" Id="c20f8e6d-0b05-4d67-87f7-77cf42cb3318" />
   <Project Path="Desafio02-Ejercicio2/Desafio02-Ejercicio2.csproj" Id="47e995aa-9e0d-43f7-b7f7-0bf6e1eff698" />
   <Project Path="MVCPeliculas/MVCPeliculas.csproj" />
 </Solution>

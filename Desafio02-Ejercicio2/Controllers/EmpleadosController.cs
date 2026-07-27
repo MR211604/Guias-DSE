@@ -20,9 +20,14 @@ namespace Desafio02_Ejercicio2.Controllers
         }
 
         // GET: Empleados
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? searchString)
         {
-            return View(await _context.Empleados.ToListAsync());
+            var empleados = _context.Empleados.AsQueryable();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                empleados = empleados.Where(e => e.Nombre.Contains(searchString) || e.Apellido.Contains(searchString) || e.Puesto.Contains(searchString));
+            }
+            return View(await empleados.ToListAsync());
         }
 
         // GET: Empleados/Details/5

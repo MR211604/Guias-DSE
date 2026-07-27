@@ -20,10 +20,17 @@ namespace Desafio02_Ejercicio2.Controllers
         }
 
         // GET: Asignaciones
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? searchString)
         {
-            var applicationDbContext = _context.Asignaciones.Include(a => a.Empleado).Include(a => a.Proyecto);
-            return View(await applicationDbContext.ToListAsync());
+            var asignaciones = _context.Asignaciones.Include(a => a.Empleado).Include(a => a.Proyecto).AsQueryable();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                asignaciones = asignaciones.Where(a => a.Proyecto.NombreProyecto.Contains(searchString) 
+                                                    || a.Empleado.Nombre.Contains(searchString) 
+                                                    || a.Empleado.Apellido.Contains(searchString) 
+                                                    || a.Rol.Contains(searchString));
+            }
+            return View(await asignaciones.ToListAsync());
         }
 
         // GET: Asignaciones/Details/5

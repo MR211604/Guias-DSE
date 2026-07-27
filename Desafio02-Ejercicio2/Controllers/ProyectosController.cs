@@ -20,9 +20,14 @@ namespace Desafio02_Ejercicio2.Controllers
         }
 
         // GET: Proyectos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? searchString)
         {
-            return View(await _context.Proyectos.ToListAsync());
+            var proyectos = _context.Proyectos.AsQueryable();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                proyectos = proyectos.Where(p => p.NombreProyecto.Contains(searchString) || p.Descripcion.Contains(searchString));
+            }
+            return View(await proyectos.ToListAsync());
         }
 
         // GET: Proyectos/Details/5

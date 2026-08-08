@@ -1,0 +1,21 @@
+services:
+# Contenedor de la app MVC
+  mvc-app:
+    build:
+      context: .
+    ports:
+      - "8081:8080"
+    depends_on:
+      - db # Espera a que inicie la base de datos
+# Contenedor de la base de datos
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      SA_PASSWORD: "Admin123" # password del usuario sa
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+volumes:
+    sqlserver-data:

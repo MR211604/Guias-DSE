@@ -4,6 +4,7 @@
   <Project Path="Biblioteca.Common/Biblioteca.Common.csproj" Id="0f2269b5-b4bc-43fc-add3-8869e4df1385" />
   <Project Path="Biblioteca.DAL/Biblioteca.DAL.csproj" Id="1b5aee24-62cf-40b8-8c10-2242ee7f3de6" />
   <Project Path="Biblioteca.Entities/Biblioteca.Entities.csproj" Id="c20f8e6d-0b05-4d67-87f7-77cf42cb3318" />
+  <Project Path="BibliotecaASPNET/BibliotecaASPNET.csproj" Id="6c519a40-0eef-4cb3-bae7-fc29d4742959" />
   <Project Path="Desafio02-Ejercicio2/Desafio02-Ejercicio2.csproj" Id="47e995aa-9e0d-43f7-b7f7-0bf6e1eff698" />
   <Project Path="DockerMvc/DockerMvc.csproj" Id="8f6476e7-0a8b-42ad-8c9c-9a8c2b68c533" />
   <Project Path="MVCPeliculas/MVCPeliculas.csproj" />

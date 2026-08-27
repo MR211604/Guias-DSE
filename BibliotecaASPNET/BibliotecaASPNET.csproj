@@ -17,6 +17,8 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
+    <PackageReference Include="NuGet.Packaging" />
+    <PackageReference Include="NuGet.Protocol" />
   </ItemGroup>
 
 </Project>

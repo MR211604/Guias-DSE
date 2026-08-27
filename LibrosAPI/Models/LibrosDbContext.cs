@@ -1,0 +1,36 @@
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace LibrosAPI.Models
+{
+    public class LibrosDbContext(DbContextOptions options) : DbContext(options)
+    {
+        public DbSet<Libro> Libros { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Libro>().HasData(
+                 new Libro
+                 {
+                     Id = 1,
+                     Titulo = "Cien años de soledad",
+                     Autor = "Gabriel García Márquez",
+                     AnioPublicacion = "1967"
+                 },
+                 new Libro
+                 {
+                     Id = 2,
+                     Titulo = "Don Quijote de la Mancha",
+                     Autor = "Miguel de Cervantes",
+                     AnioPublicacion = "1605"
+                 },
+                 new Libro
+                 {
+                     Id = 3,
+                     Titulo = "1984",
+                     Autor = "George Orwell",
+                     AnioPublicacion = "1949"
+                 }
+            );
+        }       
+    }
+}

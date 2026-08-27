@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="APIGateway/APIGateway.csproj" Id="047ab8e7-daed-4b3d-b2e6-73b508fe5d66" />
   <Project Path="Biblioteca.API/Biblioteca.API.csproj" Id="34eb69f8-e722-43d7-811e-c3dd11803a51" />
   <Project Path="Biblioteca.BL/Biblioteca.BL.csproj" Id="619da6a8-1240-41ee-b965-8f5293c8d943" />
   <Project Path="Biblioteca.Common/Biblioteca.Common.csproj" Id="0f2269b5-b4bc-43fc-add3-8869e4df1385" />
@@ -7,5 +8,8 @@
   <Project Path="BibliotecaASPNET/BibliotecaASPNET.csproj" Id="6c519a40-0eef-4cb3-bae7-fc29d4742959" />
   <Project Path="Desafio02-Ejercicio2/Desafio02-Ejercicio2.csproj" Id="47e995aa-9e0d-43f7-b7f7-0bf6e1eff698" />
   <Project Path="DockerMvc/DockerMvc.csproj" Id="8f6476e7-0a8b-42ad-8c9c-9a8c2b68c533" />
+  <Project Path="JwtAuthenticationManager/JwtAuthenticationManager.csproj" Id="83090e6e-8f74-492b-828e-dd82dba7aa25" />
+  <Project Path="LibrosAPI/LibrosAPI.csproj" Id="1335f793-f134-4d0c-9a06-4de84fa35502" />
   <Project Path="MVCPeliculas/MVCPeliculas.csproj" />
+  <Project Path="ProductosAPI/ProductosAPI.csproj" Id="245b5add-5f7b-4358-b1c2-5ea6a89aea1d" />
 </Solution>

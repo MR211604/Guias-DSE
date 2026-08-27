@@ -13,6 +13,9 @@
       "UpstreamHttpMethod": [ "Get" ],
       "DownstreamHttpMethod": "Get",
       "SwaggerKey": "Productos",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
       "RateLimitOptions": { // NUEVA CONFIGURACION
         "ClientIdHeader": "ClientId",
         "ClientWhitelist": [],
@@ -34,7 +37,10 @@
       "UpstreamPathTemplate": "/productos/{id}",
       "UpstreamHttpMethod": [ "Get" ],
       "DownstreamHttpMethod": "Get",
-      "SwaggerKey": "Productos"
+      "SwaggerKey": "Productos",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/productos",
@@ -48,7 +54,10 @@
       "UpstreamPathTemplate": "/productos",
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamHttpMethod": "Post",
-      "SwaggerKey": "Productos"
+      "SwaggerKey": "Productos",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/productos/{id}",
@@ -62,7 +71,10 @@
       "UpstreamPathTemplate": "/productos/{id}",
       "UpstreamHttpMethod": [ "Put" ],
       "DownstreamHttpMethod": "Put",
-      "SwaggerKey": "Productos"
+      "SwaggerKey": "Productos",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/productos/{id}",
@@ -76,7 +88,10 @@
       "UpstreamPathTemplate": "/productos/{id}",
       "UpstreamHttpMethod": [ "Delete" ],
       "DownstreamHttpMethod": "Delete",
-      "SwaggerKey": "Productos"
+      "SwaggerKey": "Productos",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/libros",
@@ -91,6 +106,9 @@
       "UpstreamHttpMethod": [ "Get" ],
       "DownstreamHttpMethod": "Get",
       "SwaggerKey": "Libros",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
       "FileCacheOptions": {
         "ttlSeconds": 5,
         "Region": "default"
@@ -108,7 +126,10 @@
       "UpstreamPathTemplate": "/libros/{id}",
       "UpstreamHttpMethod": [ "Get" ],
       "DownstreamHttpMethod": "Get",
-      "SwaggerKey": "Libros"
+      "SwaggerKey": "Libros",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/libros",
@@ -122,7 +143,10 @@
       "UpstreamPathTemplate": "/libros",
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamHttpMethod": "Post",
-      "SwaggerKey": "Libros"
+      "SwaggerKey": "Libros",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/libros/{id}",
@@ -136,7 +160,10 @@
       "UpstreamPathTemplate": "/libros/{id}",
       "UpstreamHttpMethod": [ "Put" ],
       "DownstreamHttpMethod": "Put",
-      "SwaggerKey": "Libros"
+      "SwaggerKey": "Libros",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/libros/{id}",
@@ -150,7 +177,10 @@
       "UpstreamPathTemplate": "/libros/{id}",
       "UpstreamHttpMethod": [ "Delete" ],
       "DownstreamHttpMethod": "Delete",
-      "SwaggerKey": "Libros"
+      "SwaggerKey": "Libros",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     }
   ],
   "GlobalConfiguration": {

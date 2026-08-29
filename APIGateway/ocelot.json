@@ -1,6 +1,20 @@
 {
   "Routes": [
     {
+      "DownstreamPathTemplate": "/api/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5034
+        }
+      ],
+      "UpstreamPathTemplate": "/login",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamHttpMethod": "Post",
+      "SwaggerKey": "Productos"
+    },
+    {
       "DownstreamPathTemplate": "/api/productos",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -184,7 +198,7 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:5017",
+    "BaseUrl": "https://localhost:5217",
     "SwaggerEndPoints": [
       {
         "Key": "Productos",

@@ -10,7 +10,7 @@ namespace JwtAuthenticationManager
 {
     public class JwtTokenHandler
     {
-        public const string JWT_SECURITY_KEY = "THIS_IS_MY_VERY_SECURE_KEY";
+        public const string JWT_SECURITY_KEY = "ESTOESUNACLAVEBASTANTESEGURAPARAPODERHASHEARCORRECTAMENTEELTOKENWAOS";
         private const int JWT_TOKEN_VALIDITY_MINS = 20;
 
         private readonly List<UserAccount> _userAccounts;
@@ -39,7 +39,7 @@ namespace JwtAuthenticationManager
                 return null;
             }
 
-            var tokenExpiryTimeStamp = DateTime.Now.AddMinutes(JWT_TOKEN_VALIDITY_MINS);
+            var tokenExpiryTimeStamp = DateTime.UtcNow.AddMinutes(JWT_TOKEN_VALIDITY_MINS);
 
             var tokenKey = Encoding.ASCII.GetBytes(JWT_SECURITY_KEY);
 
@@ -56,7 +56,7 @@ namespace JwtAuthenticationManager
             {
                 Subject = claimsIdentity,
                 Expires = tokenExpiryTimeStamp,
-                SigningCredentials = signinCredentials
+                SigningCredentials = signinCredentials,
             };
 
             var jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
@@ -66,7 +66,7 @@ namespace JwtAuthenticationManager
             return new AuthenticationResponse
             {
                 username = userAccount.userName,
-                expiresIn = (int)tokenExpiryTimeStamp.Subtract(DateTime.Now).TotalSeconds,
+                expiresIn = (int)tokenExpiryTimeStamp.Subtract(DateTime.UtcNow).TotalSeconds,
                 jwtToken = token
             };
 

@@ -1,12 +1,29 @@
 using JwtAuthenticationManager;
 using LibrosAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<LibrosDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+//CONFIG DE REDIS
+builder.Services.AddStackExchangeRedisOutputCache(options =>
+{
+    options.Configuration =
+   builder.Configuration.GetConnectionString("RedisConnection");
+});
+builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
+{
+    var configuration =
+   ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("RedisConnection")!, true);
+    return ConnectionMultiplexer.Connect(configuration);
+});
+builder.Services.AddOutputCache();
+
+
 
 builder.Services.AddCustomJwtAuthentication();
 
@@ -26,6 +43,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseOutputCache(); // <- NUEVO 
 
 app.UseAuthentication();
 

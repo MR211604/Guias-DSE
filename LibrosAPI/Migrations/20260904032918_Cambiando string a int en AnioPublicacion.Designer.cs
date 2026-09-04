@@ -3,6 +3,7 @@ using LibrosAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibrosAPI.Migrations
 {
     [DbContext(typeof(LibrosDbContext))]
-    partial class LibrosDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260904032918_Cambiando string a int en AnioPublicacion")]
+    partial class CambiandostringaintenAnioPublicacion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

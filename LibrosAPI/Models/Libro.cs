@@ -9,6 +9,6 @@ namespace LibrosAPI.Models
         public string Titulo{ get; set; } = string.Empty;
         public string? Autor { get; set; }
 
-        public string? AnioPublicacion { get; set; }
+        public int? AnioPublicacion { get; set; }
     }
 }

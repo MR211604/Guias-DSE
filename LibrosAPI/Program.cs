@@ -7,8 +7,13 @@ using StackExchange.Redis;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<LibrosDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+//builder.Services.AddDbContext<LibrosDbContext>(options =>
+//options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+//Servicio para testing inMemory
+builder.Services.AddDbContext<LibrosDbContext>(options => 
+    options.UseInMemoryDatabase("LibrosInMemoryDb"));
+
 
 //CONFIG DE REDIS
 builder.Services.AddStackExchangeRedisOutputCache(options =>

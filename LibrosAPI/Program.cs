@@ -29,8 +29,6 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
 });
 builder.Services.AddOutputCache();
 
-
-
 builder.Services.AddCustomJwtAuthentication();
 
 builder.Services.AddControllers();

@@ -8,6 +8,7 @@
   <Project Path="BibliotecaASPNET/BibliotecaASPNET.csproj" Id="6c519a40-0eef-4cb3-bae7-fc29d4742959" />
   <Project Path="Desafio02-Ejercicio2/Desafio02-Ejercicio2.csproj" Id="47e995aa-9e0d-43f7-b7f7-0bf6e1eff698" />
   <Project Path="DockerMvc/DockerMvc.csproj" Id="8f6476e7-0a8b-42ad-8c9c-9a8c2b68c533" />
+  <Project Path="GestionPersonasAPI/GestionPersonasAPI.csproj" Id="f365b0e4-b74a-4301-bc22-f99063d43d11" />
   <Project Path="JwtAuthenticationManager/JwtAuthenticationManager.csproj" Id="83090e6e-8f74-492b-828e-dd82dba7aa25" />
   <Project Path="LibrosAPI.Tests/LibrosAPI.Tests.csproj" Id="cde67618-0069-4df0-a415-3e73053564b1" />
   <Project Path="LibrosAPI/LibrosAPI.csproj" Id="1335f793-f134-4d0c-9a06-4de84fa35502" />
